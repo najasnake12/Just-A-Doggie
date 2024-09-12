@@ -36,6 +36,8 @@ def search():
         logger.error(f'Error: {e}')
         return render_template('error.html')
     
+    # soon starting on other stuff
+    
      
     return render_template('search.html')
 
