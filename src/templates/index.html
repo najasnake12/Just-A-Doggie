@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -12,10 +12,11 @@
     </header>
     <main>
 
-
+        <a href="{{ url_for('search') }}">Click here to search!</a><br>
 
     </main>
-    <footer></footer>
-    <script src="../js/index.js"></script>
+    <footer>
+        
+    </footer>
 </body>
 </html>
