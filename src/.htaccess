@@ -1,0 +1,52 @@
+# X-Frame-Options Header
+Header always set X-Frame-Options "DENY"
+
+# Content Security Policy Header
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self';"
+
+# Redirect HTTP to HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Custom Error Pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# URL Rewriting
+RewriteEngine On
+RewriteRule ^old-page\.html$ /new-page.html [L,R=301]
+
+# Restrict Access to a Directory
+<Directory "/path/to/sensitive/directory">
+    Order allow,deny
+    Deny from all
+</Directory>
+
+# Restrict Access to .htaccess File Itself
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Denied Access to Specific Files
+
+<Files "index.html">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "search.html">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "style.css">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "index.js">
+    Order allow,deny
+    Deny from all
+</Files>
