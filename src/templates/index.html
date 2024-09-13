@@ -4,19 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Document</title>
+    <title>Just A Doggie</title>
 </head>
 <body>
-    <header><nav></nav>
-        
+    <header>
+        <!-- Header content can go here -->
     </header>
     <main>
+        <h1 class="MainTitle">Just A Doggie</h1>
+        <h3 class="DescriptionText" align="center">Description</h3>
+        <br>
+        <br>
+        <br>
 
-        <a href="{{ url_for('search') }}">Click here to search!</a><br>
+        <div class="ButtonContainer">
+            <a id="SearchLinkButton" href="{{ url_for('search') }}">Click Here To Search!</a>
+        </div>
+        <br>
+        <br>
 
+        <div class="ImageGallery">
+            <div class="ImageCard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Beagle_puppy_portrait.jpg" alt="Dog Image 1">
+                <div class="Caption">Beagle</div>
+            </div>
+            <div class="ImageCard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/02.Owczarek_niemiecki_u%C5%BCytkowy_kr%C3%B3tkow%C5%82osy_suka.jpg/1200px-02.Owczarek_niemiecki_u%C5%BCytkowy_kr%C3%B3tkow%C5%82osy_suka.jpg" alt="Dog Image 2">
+                <div class="Caption">German Shepherd</div>
+            </div>
+            <div class="ImageCard">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F02%2F19%2F14%2F14%2Fdogs-1210323_960_720.jpg&f=1&nofb=1&ipt=db00381878573a29143c09c78eb0ced53499298496b3bc4956eb48d62be114ab&ipo=images" alt="Dog Image 3">
+                <div class="Caption">Puppies</div>
+            </div>
+        </div>
     </main>
     <footer>
-        
+        <!-- Footer content can go here -->
     </footer>
+
+    <script>
+        document.querySelectorAll('.ImageCard').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('Rotate');
+            });
+        });
+    </script>
+    
 </body>
 </html>
