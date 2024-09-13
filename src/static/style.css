@@ -8,8 +8,22 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Style for the main title */
+.MainTitle {
+    font-size: 56px; /* Make the title larger */
+    margin: 20px 0;
+    text-align: center;
+}
 
-.search-bar {
+/* Style for the description */
+.DescriptionText {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Style for the search bar container */
+.SearchBar {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -19,7 +33,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
-#search-input {
+/* Style for the search input field */
+#SearchInput {
     flex: 1; /* Allows the input to take up the available space */
     padding: 10px;
     border: none;
@@ -28,39 +43,126 @@ body {
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-#search-button {
+/* Style for the search button */
+#SearchButton {
+    display: inline-block; /* Allows button to be centered properly */
     padding: 10px 20px;
     border: none;
     border-radius: 0 8px 8px 0;
     background-color: #007BFF;
-    color: white;
+    color: white; /* Ensure text color is white */
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Remove underline from link */
+    text-align: center; /* Center text inside button */
 }
-
-#search-button:hover {
+#SearchButton:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
 }
 
-#search-button:active {
+#SearchButton:active {
     transform: translateY(1px);
 }
 
-#filter-dropdown {
+/* Style for filter dropdown */
+#FilterDropdown {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-#results {
+/* Style for search results list */
+#Results {
     list-style: none;
     padding: 0;
 }
 
-#results li {
+#Results li {
     padding: 10px;
     border-bottom: 1px solid #ddd;
+}
+
+/* Style for the image gallery container */
+.ImageGallery {
+    display: flex;
+    gap: 15px; /* Space between image cards */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Style for each image card */
+.ImageCard {
+    width: 200px; /* Size of the image card */
+    height: 200px; /* Size of the image card */
+    perspective: 1000px; /* Enables 3D space for rotation effect */
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.6s; /* Smooth rotation transition */
+}
+
+.ImageCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the box without distortion */
+    border-radius: 8px;
+    transition: transform 0.6s; /* Smooth rotation transition */
+}
+
+/* Style for captions */
+.Caption {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+/* Style for rotating effect */
+.ImageCard.Rotate img {
+    transform: rotateY(180deg);
+}
+
+/* Style for the new search link button */
+#SearchLinkButton {
+    display: inline-block; /* Makes the link behave like a button */
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px; /* Rounded corners for the button */
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text color */
+    font-size: 18px; /* Larger font size */
+    text-align: center; /* Center text inside button */
+    text-decoration: none; /* Remove underline from link */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 0 auto; /* Center horizontally */
+}
+
+#SearchLinkButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+#SearchLinkButton:active {
+    transform: translateY(1px); /* Button pressed effect */
+}
+
+/* Ensure responsiveness */
+@media (max-width: 600px) {
+    #SearchLinkButton {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+.ButtonContainer {
+    text-align: center; /* Centers content inside container */
 }
