@@ -1,0 +1,2 @@
+Backend: Database optimization and make the inverse indexing search algorithm even better.
+Frontend: Make the website pretter XD
