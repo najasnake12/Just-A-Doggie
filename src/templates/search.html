@@ -3,19 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Search Page</title>
+    <title>Search</title>
 </head>
 <body>
-    <div class="container">
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search...">
-            <button id="search-button">Search</button>
-            <select id="filter-dropdown">
-                <option value="all">All</option>
-            </select>
-        </div>
-        <ul id="results"></ul>
-    </div>
+    <form action="/search" method="post">
+        <!-- Product Type -->
+        <label for="ProductType">Product Type:</label>
+        <select id="ProductType" name="ProductType">
+            <option value="Kibble">Kibble</option>
+            <option value="WetFood">Wet Food</option>
+            <option value="FreezeDried">Freeze-Dried</option>
+            <option value="Treats">Treats</option>
+        </select>
+        <br><br>
+
+        <!-- Flavor -->
+        <label for="Flavor">Flavor:</label>
+        <select id="Flavor" name="Flavor">
+            <option value="Chicken">Chicken</option>
+            <option value="Beef">Beef</option>
+            <option value="Lamb">Lamb</option>
+            <option value="Fish">Fish</option>
+            <option value="Turkey">Turkey</option>
+            <option value="Mixed">Mixed</option>
+        </select>
+        <br><br>
+
+        <!-- Special Dietary Needs -->
+        <label for="DietaryNeeds">Special Dietary Needs:</label>
+        <select id="DietaryNeeds" name="DietaryNeeds">
+            <option value="GrainFree">Grain-Free</option>
+            <option value="GlutenFree">Gluten-Free</option>
+            <option value="HighProtein">High-Protein</option>
+            <option value="LowFat">Low-Fat</option>
+            <option value="Hypoallergenic">Hypoallergenic</option>
+        </select>
+        <br><br>
+
+        <!-- Age Range -->
+        <label for="AgeRange">Age Range:</label>
+        <select id="AgeRange" name="AgeRange">
+            <option value="Puppy">Puppy</option>
+            <option value="Adult">Adult</option>
+            <option value="Senior">Senior</option>
+        </select>
+        <br><br>
+
+        <!-- Breed Size -->
+        <label for="BreedSize">Breed Size:</label>
+        <select id="BreedSize" name="BreedSize">
+            <option value="SmallBreed">Small Breed</option>
+            <option value="MediumBreed">Medium Breed</option>
+            <option value="LargeBreed">Large Breed</option>
+        </select>
+        <br><br>
+
+        <!-- Price Range -->
+        <label for="PriceRange">Price Range:</label>
+        <select id="PriceRange" name="PriceRange">
+            <option value="Under20">Under $20</option>
+            <option value="20to40">$20 - $40</option>
+            <option value="40to60">$40 - $60</option>
+            <option value="Over60">Over $60</option>
+        </select>
+        <br><br>
+
+        <!-- Health Benefits -->
+        <label for="HealthBenefits">Health Benefits:</label>
+        <select id="HealthBenefits" name="HealthBenefits">
+            <option value="JointSupport">Joint Support</option>
+            <option value="DentalHealth">Dental Health</option>
+            <option value="SkinAndCoat">Skin & Coat</option>
+            <option value="WeightManagement">Weight Management</option>
+        </select>
+        <br><br>
+
+        <input type="submit" value="Search">
+
+        {% if best_product %}
+        <h2>Best Product:</h2>
+        <p>{{ best_product }}</p>
+    {% else %}
+        <p></p> <!--For now we don't have to write anything in here because it will always return this.-->
+    {% endif %}
+    </form>
 </body>
 </html>
