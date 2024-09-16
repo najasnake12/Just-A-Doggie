@@ -39,6 +39,7 @@ def build_inverted_index(dataset):
     
     return inverted_index
 
+
 # inverse indexing search algorithm
 
 def search_inverted_index(index, keywords):
@@ -84,8 +85,11 @@ def search():
         sorted_docs = search_inverted_index(inverted_index, search_terms)
         
         if sorted_docs:
-            best_doc_id = sorted_docs[0][0]  # Get the ID of the best matching document
-            best_product = dataset[best_doc_id]
+            try:
+                best_doc_id = sorted_docs[0][0]  # Get the ID of the best matching product
+                best_product = dataset[best_doc_id]
+            except Exception as e:
+                logger.error(f"Couldn't fetch the ID of the best matching product: {e}")
         else:
             best_product = "No matching product found." # When we actually get a real database we will remove this because it will be useless, but for now we use it because we have such a small database
         
